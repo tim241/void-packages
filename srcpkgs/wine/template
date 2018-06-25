@@ -35,6 +35,22 @@ depends="libXi libXinerama libXcomposite libXcursor libOSMesa
 
 binfmts="/usr/bin/wine --magic MZ"
 
+build_options="staging"
+desc_option_staging="Enable wine-staging patchset"
+build_options_default="staging"
+
+if [ ${build_option_staging} ]; then
+	hostmakedepends+=" automake"
+	makedepends+=" pulseaudio-devel"
+	distfiles+=" https://github.com/wine-staging/${pkgname}-staging/archive/v${version}.tar.gz"
+	checksum+=" 3f44f24dab0d59e08a2395960756a65485f0f5201dde2f8381d680ff235cf22d"
+
+	post_extract() {
+		cd ${XBPS_BUILDDIR}/${pkgname}-staging-${version}/patches/
+		DESTDIR="$wrksrc" ./patchinstall.sh --all
+	}
+fi
+
 if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
 	nopie_files+=" /usr/bin/winegcc /usr/bin/wine64 /usr/bin/widl /usr/bin/winebuild /usr/bin/winedump
 			/usr/bin/wrc /usr/bin/wineserver /usr/bin/wmc"
