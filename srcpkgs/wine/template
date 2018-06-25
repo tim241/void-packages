@@ -28,10 +28,11 @@ makedepends="gettext-devel lcms2-devel zlib-devel ncurses-devel
  libxslt-devel glib-devel freetype-devel pulseaudio-devel
  mpg123-devel libgsm-devel libopenal-devel giflib-devel libpng-devel
  v4l-utils-devel fontconfig-devel gnutls-devel dbus-devel sane-devel
- libpcap-devel cups-devel dbus-devel ocl-icd-devel vulkan-loader"
+ libpcap-devel cups-devel dbus-devel ocl-icd-devel vulkan-loader mit-krb5-devel
+ SDL2-devel"
 depends="libXi libXinerama libXcomposite libXcursor libOSMesa
  desktop-file-utils hicolor-icon-theme liberation-fonts-ttf
- gnutls freetype"
+ gnutls freetype mit-krb5-libs"
 
 binfmts="/usr/bin/wine --magic MZ"
 
@@ -48,10 +49,11 @@ if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
 		pulseaudio-devel-32bit mpg123-devel-32bit libgsm-devel-32bit libopenal-devel-32bit
 		giflib-devel-32bit libpng-devel-32bit fontconfig-devel-32bit gnutls-devel-32bit
 		dbus-devel-32bit sane-devel-32bit libpcap-devel-32bit
-		cups-devel-32bit ocl-icd-devel-32bit gcc-multilib"
+		cups-devel-32bit ocl-icd-devel-32bit gcc-multilib vulkan-loader-32bit mit-krb5-devel-32bit
+		SDL2-devel-32bit"
 	depends+=" freetype-32bit libXi-32bit libXinerama-32bit
 			libXcomposite-32bit libXcursor-32bit
-			libOSMesa-32bit gnutls-32bit"
+			libOSMesa-32bit gnutls-32bit mit-krb5-libs-32bit"
 	WINE="$XBPS_BUILDDIR/wine-$version"
 	WINE64="$WINE/../wine64/"
 	WINE32="$WINE/../wine32/"
