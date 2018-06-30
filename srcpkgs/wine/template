@@ -4,7 +4,7 @@ version=3.10
 revision=2
 build_style=gnu-configure
 nocross=yes
-configure_args="--without-gstreamer --with-x"
+configure_args="--without-gstreamer --without-freetype --with-x"
 short_desc="Run Microsoft Windows applications"
 maintainer="Andrea Brancaleoni <abc@pompel.me>"
 license="LGPL-2.1"
@@ -60,7 +60,7 @@ if [ "$XBPS_TARGET_MACHINE" = "x86_64" ]; then
 		libXcomposite-devel-32bit libXmu-devel-32bit libXxf86vm-devel-32bit
 		libXcursor-devel-32bit libXrandr-devel-32bit libXdamage-devel-32bit
 		libXi-devel-32bit libldap-devel-32bit alsa-lib-devel-32bit libgphoto2-devel-32bit
-		libxml2-devel-32bit libxslt-devel-32bit freetype-devel-32bit
+		libxml2-devel-32bit libxslt-devel-32bit
 		pulseaudio-devel-32bit mpg123-devel-32bit libgsm-devel-32bit libopenal-devel-32bit
 		giflib-devel-32bit libpng-devel-32bit fontconfig-devel-32bit gnutls-devel-32bit
 		dbus-devel-32bit sane-devel-32bit libpcap-devel-32bit
